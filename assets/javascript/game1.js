@@ -1,6 +1,6 @@
 
 function pickWord (){
-let wordsArray =["tyrannosaurusRex",
+let wordsArray =["tyrannosaurusrex",
                 "velociraptor",
                 "triceratops",
                 "apatosaurus",
@@ -40,11 +40,11 @@ for (let i=0; i < wordLength; i++){
 }
 
 let dashes = [];
-  let drawDash = "_"+" " ;
+  let drawDash = "_"+' ' ;
 
 
 for (let i=0; i < wordLength ; i++)
-dashes.push("_"+" ");
+dashes.push("_"+' ');
 
 let guesses = 13;
 
@@ -70,6 +70,7 @@ document.onkeyup = function(start){
        document.getElementById("press").innerHTML = ''; 
        document.getElementById("tries").innerHTML = 'Guesses Remaining:'+' '+ guesses; 
        document.getElementById("win").innerHTML = "Win Count:"+" "+ win;
+       document.getElementById('audio').play();
        }
        kick = 1;
 
@@ -87,8 +88,15 @@ document.onkeyup = function(start){
        if( guessLetter === wordToArray[i]){
           console.log("Great Guess");
           dashes.splice(i,1,guessLetter+' ');
+          const indexOfDash = dashes.indexOf("_"+" ");
+          console.log(indexOfDash);
+          if(indexOfDash === -1){
+              win = win+1;
+            document.getElementById("win").innerHTML = "Win Count:"+" "+ win;
+            
+          }
           
-          
+        
        }
     }
     for (let i=0; i < wordLength; i++){
@@ -97,7 +105,7 @@ document.onkeyup = function(start){
         else complete = true;
     }
 
-   if (complete === true) addWin();
+   
 
    let sumCurrent ='';
     for (let i=0; i < wordLength; i++)
@@ -112,12 +120,12 @@ else {
 }
 }   
 
-function addWin(){
-win - win +1;
-
+/*function addWin(){
+console.log(this.indexOfDash);
+win = win +1;
 document.getElementById("win").innerHTML = "Win Count"+" "+ win;
 
-}
+}*/
 
 
     

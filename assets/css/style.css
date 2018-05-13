@@ -37,3 +37,13 @@ body{
     text-align: center;
 }
 
+#box {
+    border: solid;
+    border-style: dashed;
+    border-color: darkmagenta;
+    margin-top: 100px;
+    margin-left: 600px;
+    margin-right: 600px;
+    border-radius: 10px;
+    
+}
