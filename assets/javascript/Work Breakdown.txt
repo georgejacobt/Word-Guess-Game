@@ -1,0 +1,14 @@
+Build a words array -- done
+make the computer pick a random pick -- done
+present the random pick in the form of dashes -- done
+dino UI -- in progress
+build press any key to get started
+hide press any key valye when game starts
+listen for letters being typed
+build reveal of words when correct letter is found
+build max number of guess 
+build win record
+build alreayd guessed letters listen
+build new pick after word is guessed 
+build new pick after max guesses are done
+

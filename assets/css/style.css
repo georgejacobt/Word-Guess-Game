@@ -1,0 +1,39 @@
+body{
+    background: url(../images/dinbg.jpg);
+    background-repeat: repeat;
+    background-blend-mode: lighten;
+}
+
+#title{
+    text-align: center;
+    
+}
+
+#press{
+    text-align: center;
+    font-size: large;
+}
+
+#wordBlank{
+    text-align: center;
+    margin-top: 120SApx;
+    color: mediumblue;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+#win{
+    text-align: center;
+    margin-top: 160px;
+
+}
+
+#tries{
+    text-align: center;
+    margin-top: 100px;
+}
+
+#hint{
+    text-align: center;
+}
+
