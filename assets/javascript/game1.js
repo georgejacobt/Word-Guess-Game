@@ -26,9 +26,9 @@ return computerPick;
 }
 
 let word = pickWord();  
-console.log(word);
+console.log("Your Dinosaor is:"+" "+ word);
 let wordLength = word.length;
-console.log(wordLength);
+console.log("Word Length:"+ " "+ wordLength);
 let wordToArray = [];
 let win =0;
 let check = "_"+" ";
@@ -79,20 +79,23 @@ document.onkeyup = function(start){
    let guessLetter = event.key.toLowerCase();
    guesses = guesses -1;
    //console.log(word);
-   console.log(guessLetter);
+   //console.log(guessLetter);
    //console.log(wordLength);
     
 
   for (let i=0; i < wordLength; i++){
        //console.log("here");
        if( guessLetter === wordToArray[i]){
-          console.log("Great Guess");
+         // console.log("Great Guess");
           dashes.splice(i,1,guessLetter+' ');
           const indexOfDash = dashes.indexOf("_"+" ");
-          console.log(indexOfDash);
+          //console.log(indexOfDash);
           if(indexOfDash === -1){
               win = win+1;
             document.getElementById("win").innerHTML = "Win Count:"+" "+ win;
+            document.getElementById("press").innerHTML = "You WON!!"
+            ;
+            
             
           }
           
@@ -111,12 +114,15 @@ document.onkeyup = function(start){
     for (let i=0; i < wordLength; i++)
         sumCurrent = sumCurrent + dashes[i];
 
-    console.log(sumCurrent);
+    //console.log(sumCurrent);
     document.getElementById("wordBlank").innerHTML = sumCurrent;
     document.getElementById("tries").innerHTML = 'Guesses Remaining:'+' '+ guesses; 
 }
 else { 
     document.getElementById("press").innerHTML = "You have reached maximum guesses";
+}
+if (guesses === 4){
+    document.getElementById("hint").innerHTML = "Hint: Check the console";
 }
 }   
 
