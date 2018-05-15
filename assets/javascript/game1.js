@@ -35,6 +35,7 @@ let check = "_"+" ";
 let complete = null;
 
 
+
 for (let i=0; i < wordLength; i++){
     wordToArray.push(word.charAt(i));
 }
@@ -61,10 +62,12 @@ return sum;
 //document.onkeypress=function(e){
     
 //}
-
-var kick = 0;let flag = 0;
+//let guessLetterPrint = ' '; 
+let guessLetterArray = [];
+var kick = 0;let flag = 0; 
 document.onkeyup = function(start){
-    
+    let guessLetterPresent = "";
+     
    if (kick===0){
        presentDashes();
        document.getElementById("press").innerHTML = ''; 
@@ -73,14 +76,27 @@ document.onkeyup = function(start){
        document.getElementById('audio').play();
        }
        kick = 1;
-
+      
    //console.log(kick);
    if (guesses >= 1){
    let guessLetter = event.key.toLowerCase();
+   
    guesses = guesses -1;
+   ;
    //console.log(word);
    //console.log(guessLetter);
    //console.log(wordLength);
+      guessLetterArray.push(guessLetter); 
+   //console.log(guessLetterArray);
+   
+   for (let i=1; i < guessLetterArray.length; i++){
+       guessLetterPresent = guessLetterPresent + " " +guessLetterArray[i] + ",";
+       //console.log(guessLetterPresent);
+       document.getElementById("guessedWords").innerHTML = "Letters Guessed:"+" "+ guessLetterPresent;
+   }
+   
+ 
+   
     
 
   for (let i=0; i < wordLength; i++){
@@ -93,10 +109,7 @@ document.onkeyup = function(start){
           if(indexOfDash === -1){
               win = win+1;
             document.getElementById("win").innerHTML = "Win Count:"+" "+ win;
-            document.getElementById("press").innerHTML = "You WON!!"
-            ;
-            
-            
+            document.getElementById("press").innerHTML = "You WON!!";
           }
           
         
@@ -120,10 +133,12 @@ document.onkeyup = function(start){
 }
 else { 
     document.getElementById("press").innerHTML = "You have reached maximum guesses";
+    
 }
-if (guesses === 4){
+if (guesses === 6){
     document.getElementById("hint").innerHTML = "Hint: Check the console";
 }
+
 }   
 
 /*function addWin(){
