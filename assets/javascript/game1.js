@@ -33,6 +33,7 @@ let wordToArray = [];
 let win =0;
 let check = "_"+" ";
 let complete = null;
+let winFlag = false;
 
 
 
@@ -78,16 +79,23 @@ document.onkeyup = function(start){
        kick = 1;
       
    //console.log(kick);
-   if (guesses >= 1){
+   if (guesses > 0){
    let guessLetter = event.key.toLowerCase();
+   if (winFlag === false){
+       guesses = guesses -1; 
+   }
+  
    
-   guesses = guesses -1;
-   ;
    //console.log(word);
    //console.log(guessLetter);
-   //console.log(wordLength);
+   //console.log(wordLength); 
+   if (guesses > 0 && winFlag === false)
       guessLetterArray.push(guessLetter); 
    //console.log(guessLetterArray);
+
+   
+   
+   
    
    for (let i=1; i < guessLetterArray.length; i++){
        guessLetterPresent = guessLetterPresent + " " +guessLetterArray[i] + ",";
@@ -108,6 +116,7 @@ document.onkeyup = function(start){
           //console.log(indexOfDash);
           if(indexOfDash === -1){
               win = win+1;
+              winFlag = true;
             document.getElementById("win").innerHTML = "Win Count:"+" "+ win;
             document.getElementById("press").innerHTML = "You WON!!";
           }
